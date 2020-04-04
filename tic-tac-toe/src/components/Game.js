@@ -13,6 +13,21 @@ export default class Game extends Component {
     }
   }
 
+  handleClick(i) {
+    const history = this.state.history.slice(0, this.state.stepNumber+1);
+    const current = history[history.length-1];
+    const boxes = current.boxes.slice();
+    boxes[i] = this.state.xIsNext ? 'X' : 'O';
+
+    this.setState({
+      history: history.concat({
+        boxes: boxes
+      }), 
+      xIsNext: !this.state.xIsNext,
+      stepNumber: history.length
+    })
+  }
+
   render() {
     const history = this.state.history;
     const current = history[this.state.stepNumber];
@@ -20,7 +35,7 @@ export default class Game extends Component {
     return (
       <div className="game">
         <div className="game-board">
-          <Board onClick={(i)=>this.onClick(i)}
+          <Board onClick={(i)=>this.handleClick(i)}
           boxes={current.boxes} />
         </div>
         
