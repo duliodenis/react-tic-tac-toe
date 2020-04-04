@@ -1,5 +1,5 @@
 # React Tic-Tac-Toe
-![](art/board1.png?raw=true)
+![](art/board2.png?raw=true)
 
 This is a web-based Tic Tac-Toe game written in ReactJS.
 
